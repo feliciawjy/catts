@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
+    console.log("homepage oninit triggered");
     this.isLoggedIn = this.authService.isLoggedIn();
     this.authService.authStatus.subscribe(
       (status: boolean) => this.isLoggedIn = status
