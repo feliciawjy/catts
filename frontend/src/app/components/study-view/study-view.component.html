@@ -1,0 +1,13 @@
+<div class="study-container">
+    <h2>My Study Topics</h2>
+    <div *ngFor="let topic of studyTopics" class="study-topic">
+        <h3>{{ topic.name }}</h3>
+        <button mat-raised-button color="primary" (click)="showAddTaskForm(topic.id)">Add Task</button>
+        <ul>
+            <li *ngFor="let task of topic.tasks">{{ task.name }}</li>
+        </ul>
+    </div>
+    <button mat-raised-button color="accent" (click)="['topic']">Add New Study Topic</button>
+</div>
+
+<router-outlet></router-outlet>

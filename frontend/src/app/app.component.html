@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+    <span class="app-name">CATTs</span>
+    <span class="spacer"></span>
+    <ng-container *ngIf="isLoggedIn">
+      <button mat-button routerLink="home">Home</button>  
+      <button mat-button routerLink="tasks">Tasks</button>
+      <button mat-button routerLink="calendar">Calendar</button>
+      <button mat-button routerLink="study">Study</button>
+      <button mat-button routerLink="expiry">Expiry</button>
+      <button mat-button (click)="logout()">Logout</button>
+    </ng-container>
+  </mat-toolbar>
+
+<router-outlet></router-outlet>

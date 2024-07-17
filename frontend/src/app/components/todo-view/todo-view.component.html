@@ -1,0 +1,13 @@
+<div class="todo-container">
+  <h2>My Todo Lists</h2>
+  <div *ngFor="let list of todoLists" class="todo-list">
+    <h3>{{ list.name }}</h3>
+    <button mat-raised-button color="primary" (click)="showAddTaskForm(list.id)">Add Task</button>
+    <mat-list>
+      <mat-list-item *ngFor="let task of list.tasks">{{ task.name }}</mat-list-item>
+    </mat-list>
+  </div>
+  <button mat-raised-button color="accent" [routerLink]="['list']">Add New Todo List</button>
+</div>
+
+<router-outlet></router-outlet>

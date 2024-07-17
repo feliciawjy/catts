@@ -1,0 +1,20 @@
+.app-name { 
+  flex: 1 1 auto;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  width: 600px;
+  margin-bottom: 2rem;
+}
+.buttons {
+  display: flex;
+  gap: 1rem;
+}

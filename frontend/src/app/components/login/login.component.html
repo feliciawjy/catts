@@ -1,0 +1,19 @@
+<mat-card>
+  <button mat-icon-button (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email" type="email">
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Invalid email format</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" formControlName="password" type="password">
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </mat-card-content>
+</mat-card>

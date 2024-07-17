@@ -1,0 +1,25 @@
+<mat-card>
+    <mat-card-content>
+        <h2>{{ currentTime | date:'medium' }}</h2>
+
+        <h3>Happening Now</h3>
+        <p *ngIf="currentEvent; else noCurrentEvent">{{ currentEvent.name }}</p>
+        <ng-template #noCurrentEvent>
+            <p>No current events</p>
+        </ng-template>
+
+        <h3>Coming Up Today</h3>
+        <mat-list>
+            <mat-list-item *ngFor="let event of upcomingEvents">
+                {{ event.name }} - {{ event.startTime | date:'shortTime' }}
+            </mat-list-item>
+        </mat-list>
+
+        <h3>Expiring Soon</h3>
+        <mat-list>
+            <mat-list-item *ngFor="let item of expiringItems">
+                {{ item.itemName }} - Expires on {{ item.expiryDate | date:'mediumDate' }}
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

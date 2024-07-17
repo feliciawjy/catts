@@ -1,0 +1,20 @@
+<mat-card class="form-container">
+  <mat-card-header>
+    <mat-card-title>Add New Todo List</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="todoListForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>List Name</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="todoListForm.get('name')?.hasError('required')">
+          List name is required
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="onBack.emit()">Back</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!todoListForm.valid">Add List</button>
+  </mat-card-actions>
+</mat-card>
